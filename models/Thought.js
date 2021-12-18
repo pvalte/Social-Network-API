@@ -1,9 +1,5 @@
 const { Schema, model } = require('mongoose');
-
-const dateFormat = function (createdAtVal) {
-    //TODO: formatting dates
-    return createdAtVal;
-};
+const dateFormat = require('../utils/dateFormat');
 
 const reactionSchema = new Schema(
     {
