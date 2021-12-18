@@ -35,7 +35,7 @@ const thoughtSchema = new Schema(
         thoughtText: {
             type: String,
             required: true,
-            match: '/^.{1,280}$/'
+            match: [/^([a-zA-Z0-9 _\.-]{1,280})$/, 'Please use 1 - 280 characters']
         },
         createdAt: {
             type: Date,
@@ -66,5 +66,5 @@ thoughtSchema.virtual('reactionCount').get(function () {
 // create the Thought model
 const Thought = model('Thought', thoughtSchema);
 
-// export the Pizza model
+// export the Thought model
 module.exports = Thought;
