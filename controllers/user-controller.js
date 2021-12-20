@@ -8,6 +8,10 @@ const userController = {
                 path: 'friends',
                 select: '-__v'
             })
+            .populate({
+                path: 'thoughts',
+                select: '-__v'
+            })
             .select('-__v')
             .then(dbUser => {
                 res.json(dbUser);
@@ -21,6 +25,10 @@ const userController = {
         User.findOne({ _id: params.id })
             .populate({
                 path: 'friends',
+                select: '-__v'
+            })
+            .populate({
+                path: 'thoughts',
                 select: '-__v'
             })
             .select('-__v')
