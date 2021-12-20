@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, Types } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
 const reactionSchema = new Schema(
@@ -10,7 +10,7 @@ const reactionSchema = new Schema(
         reactionBody: {
             type: String,
             required: true,
-            match: '/^.{0,280}$/'
+            match: [/^([a-zA-Z0-9 _\.-]{1,280})$/, 'Please only use up to 280 characters']
         },
         username: {
             type: String,
